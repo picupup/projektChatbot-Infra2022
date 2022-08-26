@@ -10,3 +10,7 @@ if ["$happy" = "$currentdate"]; then
   echo happy
 fi
 curl -s https://informatik.hs-bremerhaven.de/infra-2022-e/*|html2text -utf8
+
+dst2=/var/www/html/docker-infra-2022-e-web/
+scp www/* mydocker:$dst2
+
