@@ -7,6 +7,6 @@ include("algorithmen.php");
 
 
 
-echo search("Vestibulum ante ipsum primis in faucibus orci");
+echo search("How are you ?");
 
 ?>

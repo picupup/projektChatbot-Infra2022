@@ -33,15 +33,15 @@ function search ($q){
 
     $words = explode(" ", $current_question); // trenne die wörter im Array
     
-    $current_count = 0;
     foreach ($words as $word) {
       if (str_contains($q, $word)){
         ++$current_count;
-        echo $word;
+        //echo $word;
       }
     }
     if ($current_count > $bigger_count){
       $bigger_count = $current_count;
+       $current_count = 0;
       $target_answer = $current_answer;
       }
     };

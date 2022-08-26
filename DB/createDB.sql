@@ -11,4 +11,4 @@ create table bot_qa(
 
 
 
-
+insert into bot_qa (q, a) values ('How are you','not so well');
