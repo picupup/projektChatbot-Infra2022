@@ -12,3 +12,6 @@ create table bot_qa(
 
 
 insert into bot_qa (q, a) values ('How are you','not so well');
+insert into bot_qa (q, a) values ('was up','not much');
+insert into bot_qa (q, a) values ('How are you doing','doing well');
+insert into bot_qa (q, a) values ('How are you today','today im so happy');

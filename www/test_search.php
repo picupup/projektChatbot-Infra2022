@@ -7,6 +7,6 @@ include("algorithmen.php");
 
 
 
-echo search("How are you ?");
+echo search("how are") . "\n";
 
 ?>
