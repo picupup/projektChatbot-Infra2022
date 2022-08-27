@@ -51,10 +51,8 @@ function search ($q){
     if($target_answer==""){
         $target_answer="Ich könnte keine Antwort für diese Frage finden.";
     }
-    //echo "\n Antwort: " . $target_answer;
    return "$target_answer";
 
 }
-//////////////search("killer all");
 
 ?>
