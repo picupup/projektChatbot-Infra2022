@@ -10,7 +10,6 @@ function search ($q){
   $sql="select bot_qa.q, bot_qa.a FROM bot_qa";
   $result = mysqli_query($conn, $sql);
 
-  $string = "";
     
   $bigger_count = 0;
   $current_count = 0;
@@ -31,13 +30,16 @@ function search ($q){
           ++$cond;
         }
 
+        if ( "$current_question" == "$q" ){
+          return $current_answer;
+        }
+
     $words = explode(" ", $current_question); // trenne die wörter im Array
     
     foreach ($words as $word) {
       //if (str_contains($q, $word)){
       if (stripos($q, $word)){
         ++$current_count;
-        //echo "$word\n";
       }
     }
     if ($current_count > $bigger_count){
@@ -47,7 +49,7 @@ function search ($q){
       }
     };
     if($target_answer==""){
-        $target_answer="keine Antwort";
+        $target_answer="Ich könnte keine Antwort für diese Frage finden.";
     }
     //echo "\n Antwort: " . $target_answer;
    return "$target_answer";
