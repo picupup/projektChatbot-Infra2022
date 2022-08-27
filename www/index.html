@@ -2,15 +2,16 @@
 <html>
 <head>
   <meta charset='utf-8'>
-  <link rel="stylesheet" type="text/css" href="index.css">
   <title>Chat-Roboter des Teams infra-2022-e</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <script type="text/javascript" src="javaScript.js"> </script>
 </head>
 <body>
  <h1>Talk to Robbi</h1>
  <div id="rectangle"></div>
- <form>
-   <input type="text" id="chat" name="chat">
-   <input type="submit" value="Submit">
+ <form name="robbi" id="robbi" onsubmit="return false" >
+   <input type="text" id="question" name="question">
+   <input type="submit" value="Submit" onclick="senden()">
  </form>
 </body>
 </html>

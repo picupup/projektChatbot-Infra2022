@@ -46,6 +46,9 @@ function search ($q){
       $target_answer = $current_answer;
       }
     };
+    if($target_answer==""){
+        $target_answer="keine Antwort";
+    }
     //echo "\n Antwort: " . $target_answer;
    return "$target_answer";
 
