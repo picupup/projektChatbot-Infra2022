@@ -1,10 +1,10 @@
 #!/bin/bash
-dst2=/var/www/html/docker-$USER-web/robbi
-ssh mydocker "mkdir -p $dst2"
-scp -rq www/* mydocker:$dst2
+dst=/var/www/html/docker-$USER-web/robbi
+ssh mydocker "mkdir -p $dst"
+scp -rq www/* mydocker:$dst
 currentdate=$(date)
 echo "$currentdate" > happy.txt
-scp -q happy.txt mydocker:$dst2/
+scp -q happy.txt mydocker:$dst/
 rm happy.txt
 happy=$(curl -s https://informatik.hs-bremerhaven.de/docker-$USER-web/robbi/happy.txt)
 echo "$happy"
