@@ -1,4 +1,11 @@
 #!/bin/bash
+if [ $USER = "infra-2022-e" ]
+	then
+		repo=/home/$USER/repos/$USER
+	else
+		repo=$PWD
+	fi
+
 dst=/var/www/html/docker-$USER-web/robbi
 ssh mydocker "mkdir -p $dst"
 scp -rq $PWD/www/* mydocker:$dst
