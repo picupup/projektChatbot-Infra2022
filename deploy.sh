@@ -3,5 +3,5 @@
 #rsync www/* infra-2022-e@hopper.hs-bremerhaven.de:$dst 
 
 #sudo -i -u infra-2022-e cd /home/infra-2022-e/repos/infra-2022-e/ git pull
-sudo -i -u infra-2022-e git pull /home/infra-2022-e/repos/infra-2022-e/
-sudo -i -u infra-2022-e ./home/infra-2022-e/repos/infra-2022-e/ldeploy.sh
+sudo -i -u infra-2022-e git -C /home/infra-2022-e/repos/infra-2022-e/ pull
+sudo -i -u infra-2022-e sh /home/infra-2022-e/repos/infra-2022-e/ldeploy.sh

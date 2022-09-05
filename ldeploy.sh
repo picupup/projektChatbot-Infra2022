@@ -1,7 +1,7 @@
 #!/bin/bash
 dst=/var/www/html/docker-$USER-web/robbi
 ssh mydocker "mkdir -p $dst"
-scp -rq www/* mydocker:$dst
+scp -rq /home/$USER/repos/infra-2022-e/www/* mydocker:$dst
 currentdate=$(date)
 echo "$currentdate" > happy.txt
 scp -q happy.txt mydocker:$dst/
