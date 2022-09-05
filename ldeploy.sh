@@ -1,7 +1,7 @@
 #/bin/bash
 if [ $USER = "infra-2022-e" ]
 	then
-		repo=/home/'$USER'/repos/'$USER'
+		repo=/home/$USER/repos/$USER
 	else
 		repo=$PWD
 	fi
