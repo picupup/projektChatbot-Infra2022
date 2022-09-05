@@ -1,14 +1,14 @@
-#!/bin/bash
+#/bin/bash
 if [ $USER = "infra-2022-e" ]
 	then
-		repo=/home/$USER/repos/$USER
+		repo=/home/'$USER'/repos/'$USER'
 	else
 		repo=$PWD
 	fi
 
 dst=/var/www/html/docker-$USER-web/robbi
 ssh mydocker "mkdir -p $dst"
-scp -rq $PWD/www/* mydocker:$dst
+scp -rq $repo/www/* mydocker:$dst
 currentdate=$(date)
 echo "$currentdate" > happy.txt
 scp -q happy.txt mydocker:$dst/
