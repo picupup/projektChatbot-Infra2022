@@ -6,7 +6,7 @@ console.log("aus der javaScript.js");
 
 function senden(){
 
-	console.log("aus der submit-Funktion");
+	// console.log("aus der submit-Funktion");
 
 	var form = document.forms['robbi']; //DOM (Document Object Model)
 	var form_question = form['question'].value;
@@ -14,7 +14,7 @@ function senden(){
 	var xhr = new XMLHttpRequest() //Here begins Ajax
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && xhr.status == 200) {
-			document.getElementById("rectangle").innerHTML = (xhr.responseText)
+			document.getElementById("answer").innerHTML = (xhr.responseText)
 		}
 	}
 	xhr.open("GET", 'call_algorithm.php' + "?question='"+form_question+"'", true);

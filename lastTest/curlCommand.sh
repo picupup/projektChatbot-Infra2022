@@ -9,4 +9,4 @@ input=${1:-"how are you"}
 input=$(echo "$input" |sed -E "s/ /%20/g")
 #echo "$input"
 
-curl -X "GET" -s "https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question=\'$input\'" | html2text
+curl -X "GET" -s "https://informatik.hs-bremerhaven.de/docker-infra-2019-e-web/robbi/call_test.php?question='$input'" [1-2000]

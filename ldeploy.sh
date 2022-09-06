@@ -8,7 +8,7 @@ if [ $USER = "infra-2022-e" ]
 
 dst=/var/www/html/docker-$USER-web/robbi
 ssh mydocker "mkdir -p $dst"
-scp -rq $repo/www/* mydocker:$dst
+rsync -av --progress --delete $repo/www/* mydocker:$dst
 currentdate=$(date)
 echo "$currentdate" > happy.txt
 scp -q happy.txt mydocker:$dst/
@@ -19,7 +19,7 @@ echo "$currentdate"
 if [ "$happy" = "$currentdate" ]; then
    echo happy
  fi
-curl -s https://informatik.hs-bremerhaven.de/docker-$USER-web/robbi/index.html |html2text -utf8
+curl -s https://informatik.hs-bremerhaven.de/docker-$USER-web/robbi/chat.php |html2text -utf8
 
 
 
