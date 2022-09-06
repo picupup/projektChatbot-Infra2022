@@ -8,7 +8,7 @@ if [ $USER = "infra-2022-e" ]
 
 dst=/var/www/html/docker-$USER-web/robbi
 ssh mydocker "mkdir -p $dst"
-rsync -av --progress --delete $repo/www/* mydocker:$dst
+rsync -av $repo/www/ mydocker:$dst --progress --delete-after
 currentdate=$(date)
 echo "$currentdate" > happy.txt
 scp -q happy.txt mydocker:$dst/
