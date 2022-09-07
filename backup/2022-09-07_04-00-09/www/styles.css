@@ -1,0 +1,218 @@
+#answer{
+  color: white;
+}
+#rectangle{
+  padding:20px;
+  max-width:auto;
+  max-height:auto;
+  background:grey;
+}
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  
+}
+
+html, body{
+  height: 100%;
+}
+
+html{
+  color: rgb(85, 85, 85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.messageMain{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+main {
+  flex: 1;
+}
+
+.intern{
+  background-color: rgb(216, 216, 216);
+}
+.message-container{
+  /* position: relative;
+  width: 100%;
+  max-width: 25%;
+  
+  padding: 0 20px;
+  box-sizing: border-box; */
+  width: 55%;
+  display: flex;
+}
+.message-box{
+  text-align: center;
+  /*border-color: black;
+  border-width: 5px;
+  border-style: ridge;*/
+  padding: 5%;
+  width: 100%;
+  font-size: large;
+  background: #eaeaea;
+}
+
+th, td { 
+    border: 1px solid black; 
+    border-collapse: collapse;
+    padding: 5px;
+   }
+label, input, select, textarea {
+  margin: 5px;
+}
+
+h1 {
+ font-style:initial;
+} 
+
+button {
+  border-radius: 10px;
+  padding: 1%;
+ margin-block: 2%;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom:0px;
+  display:flex;
+  flex-direction: column;
+  width:100%;
+} 
+
+header {
+  height: 95px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.header-navbar-links {
+  color: black;
+  text-align: center;
+  display: flex;
+}
+
+.header-navbar-links li { 
+  list-style-type: none;
+  text-shadow: 0px 0px 0px black;
+  margin: 5px 10px 5px 10px;
+}
+
+.header-brand {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 150%;
+  display: block;
+  text-shadow: 0px 0px 2px black;
+}
+#logo{
+  height:70px;
+  width: 120px;
+}
+.slogan {
+  padding-top: 120px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  text-shadow: 0px 0px 2px black;
+}
+.slogan-top {
+  font-size: 170%;
+  font-weight: lighter;
+} 
+.slogan-bottom {
+  font-size: 250%;
+  font-weight: bold;
+}
+.solgan-button {
+  margin-top: 50px;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 2px black;
+}
+.solgan-button:hover {
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 2px black;
+}
+.startHeading, .startParagraph {
+  text-align: center;
+  width: 100%;
+}
+
+/**
+ * Footer
+ */
+ .footer {
+  background-color: rgb(168, 33, 51);
+  height: 50px;
+  flex: 0;
+  width: 100%;
+  padding: 10px 20px 10px 20px;
+}
+.footer p {
+  color: rgb(255, 255, 255);
+}
+.variabler_body{
+  background: #eaeaea;
+}
+/*Dialog-Fenster*/
+#body-overlay{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.7);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dialog{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+  box-shadow: 8px 8px 16px rgba(255,255,255,0.1);
+  opacity: 0;
+  pointer-events: none;
+}
+
+#body-overlay.sichtbar, .dialog.sichtbar{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#ue_anfrage_dia, #dol_anfrage_dia, #auftragnehmer_form_dia{
+  width: 70%;
+}
+
+.dialog-schliessen-button{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 32px;
+  line-height: 32px;
+  color: rgba(0,0,0,0.4);
+  text-decoration: none;
+}
+/*wird nur in Mittler-Formular verwendet*/
+section{
+  display: inline-block;
+  padding: 5px;
+
+}
