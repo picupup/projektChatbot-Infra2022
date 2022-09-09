@@ -19,7 +19,7 @@ create table bot_login(
 );
 
 insert into bot_qa (q, a) values ('How are you','not so well');
-insert into bot_qa (q, a) values ('was up','not much');
+insert into bot_qa (q, a) values ('wassup','not much');
 insert into bot_qa (q, a) values ('How are you doing','doing well');
 insert into bot_qa (q, a) values ('How are you today','today im so happy');
 insert into bot_login (email, password, hint) values ('123@gmail.com','123', 'OneTwoThree');
