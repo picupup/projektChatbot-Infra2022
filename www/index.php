@@ -10,7 +10,7 @@ echo"<main class='messageMain'>
 	<div class='message-box'>
 	<h1>Login to access Robbi</h1><br>
 	<form methode='POST' action='chat.php'>
-		<input type='text' placeholder='Username'></input><br><br>
+		<input type='text' placeholder='mail adress'></input><br><br>
 		<input type='text' placeholder='Password'></input><br><br>
 		<button type='submit'>Login</button>
 	</form>

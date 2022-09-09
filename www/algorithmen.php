@@ -49,7 +49,7 @@ function search ($q){
       }
     };
     if($target_answer==""){
-        $target_answer="Ich könnte keine Antwort für diese Frage finden.";
+        $target_answer="I couldn't find an answer to this question.";
     }
    return "$target_answer";
 
