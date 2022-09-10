@@ -59,7 +59,6 @@ function html_footer(){
     include("db_connection.php");
     $conn = return_db_connection();
     echo"<footer class='footer'>
-    <script type=\"text/javascript\" src=\"dialoge.js\"></script>
             <div class='container'>
                 <p style='text-align:center;color:white;font-size:10px'>Made by: Team E in 2022<br>Module: Infrastruktur<br>University of Applied Sciences Bremerhaven</p>
             </div>

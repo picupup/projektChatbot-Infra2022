@@ -1,30 +1,35 @@
-//var form = document.forms['robbi'].element['question'].value
-
-
-console.log("aus der javaScript.js");
-
-
-function senden(){
-
-	// console.log("aus der submit-Funktion");
-
-	var form = document.forms['robbi']; //DOM (Document Object Model)
-	var form_question = form['question'].value;
-	console.log(form_question);
+function giveIn(){
+	var form = document.forms['robbi'] //DOM (Document Object Model)
+	var form_question = form['question'].value
+	printChat(form_question, "question")
+	var answer = getAnswer(form_question)
+	form['question'].value = "";
+}
+function getAnswer(question){
 	var xhr = new XMLHttpRequest() //Here begins Ajax
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && xhr.status == 200) {
-			document.getElementById("answer").innerHTML = (xhr.responseText)
+			console.log(xhr.response)
+			printChat(xhr.response, "answer")
+			//chatHistory.push(xhr.response)
 		}
 	}
-	xhr.open("GET", 'call_algorithm.php' + "?question='"+form_question+"'", true);
+	xhr.open("GET", 'call_algorithm.php' + "?question='"+question+"'", true);
 	xhr.send();
-
-	form['question'].value = "";
 }
-
-
-// var message = form["name"].value
-
-
-
+function printChat(toPrint, flag){
+	var chat_object = document.createElement("div")
+	console.log(flag)
+	chat_object.className = flag
+	chat_object.innerHTML = toPrint
+	var chat_box = document.getElementById("dialoge")
+	chat_box.appendChild(chat_object)
+	updateScroll()
+}
+function updateScroll(){
+    var element = document.getElementById("dialoge");
+    element.scrollTop = element.scrollHeight;
+}
+window.onload = function initial(){
+	printChat("Hello i'm Robbi. Ask me a question.", "answer")
+}

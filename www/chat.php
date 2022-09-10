@@ -11,10 +11,10 @@ echo"<main class='messageMain'>
   <div class='message-box'>
     <h1>Talk to Robbi</h1>
     <div id='rectangle'>
-      <div id='answer'></div><br>
+      <div id='dialoge'></div><br>
       <form name='robbi' id='robbi' onsubmit='return false' >
         <input type='text' id='question' name='question'>
-        <input type='submit' value='Send' onclick='senden()'>
+        <input type='submit' value='Send' id='sub_butt' onclick='giveIn()'>
       </form> 
     </div>
   </div>
