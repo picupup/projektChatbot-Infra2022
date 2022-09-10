@@ -11,7 +11,6 @@ function getAnswer(question){
 		if (xhr.readyState == 4 && xhr.status == 200) {
 			console.log(xhr.response)
 			printChat(xhr.response, "answer")
-			//chatHistory.push(xhr.response)
 		}
 	}
 	xhr.open("GET", 'call_algorithm.php' + "?question='"+question+"'", true);
