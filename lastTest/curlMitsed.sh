@@ -10,7 +10,7 @@ input=$(echo "$input" |sed -E "s/ /%20/g")
 #echo "$input"
 echo "$(date '+%Y-%m-%d_%H:%M:%S')"
 
-seq 100 | parallel --max-args 0 --jobs 10 "curl -X 'GET' -s https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input'"
+seq 10000 | parallel --max-args 0 --jobs 100 "curl -X 'GET' -s https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input'"
 
 
 echo "$(date '+%Y-%m-%d_%H:%M:%S')"
