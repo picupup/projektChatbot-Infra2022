@@ -14,7 +14,7 @@ echo"<main class='messageMain'>
       <div id='dialoge'></div><br>
       <form name='robbi' id='robbi' onsubmit='return false' >
         <input type='text' id='question' name='question'>
-        <input type='submit' value='Send' id='sub_butt' onclick='giveIn()'>
+        <input type='submit' value='Send' id='sub_butt' onclick='main()'>
       </form> 
     </div>
   </div>
