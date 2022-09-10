@@ -1,3 +1,4 @@
+
 #sub_butt{
   width: 9%;
   padding: 3px;
@@ -7,21 +8,22 @@
   width: 85%;
   text-align:left
 }
-.question{
-  color:black;
+.question, .answer{
+  border-radius: 10px;
   max-width: fit-content;
   padding: 3px;
   margin: 5px;
+}
+.question{
+  color:black;
   background-color: rgba(72, 145, 72, 0.564);
   align-self: end;
 }
 .answer{
-  max-width: fit-content;
-  padding: 3px;
-  margin: 5px;
   background-color: rgba(168, 33, 51, 0.537);
 }
 #dialoge{
+  border-radius: 10px;
   background-color: rgba(181, 158, 75, 0.735);
   color: white;
   display: flex;
