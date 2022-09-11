@@ -28,6 +28,9 @@ echo -e "Data will be shwon now \n $dateBegin $hourBegin"
 
 
 cat $f1 | sed -n "/^$dateBegin $hourBegin/,/^$dateEnd $hourEnd/p" | cut -d "%" -f 1 | rev | cut -d " " -f 1 | rev
-#cat $f1 | sed -n "/^$dateBegin $hourBegin/,/^$dateEnd $hourEnd/p"
 
-echo -e "\n$dateEnd $hourEnd"
+mkdir -p ~/tmp
+f2=~/tmp/last.gp
+touch $f2
+  #Gnuplot erzeugen
+echo -e "\n $dateEnd $hourEnd" 
