@@ -98,6 +98,28 @@ th, td {
     border-collapse: collapse;
     padding: 5px;
    }
+#sign_up{
+  text-align: left;
+}
+#register{
+  text-align:center !important;
+}
+#register_button{
+  padding-left: 25px;
+  padding-right: 25px;
+  background-color: rgba(72, 145, 72, 0.564)
+}
+#register_button:hover {
+  background-color: rgb(72, 145, 72);
+}
+input{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #ffffff;
+}
 label, input, select, textarea {
   margin: 5px;
 }
@@ -192,6 +214,7 @@ header {
   flex: 0;
   width: 100%;
   padding: 10px 20px 10px 20px;
+  margin-top: 25px;
 }
 .footer p {
   color: rgb(255, 255, 255);

@@ -8,7 +8,6 @@ function html_pageHeader(){
         <title>Infrastruktur Team E</title>
         <link rel='icon' type='image/x-icon' href='./images/logo.png'>
         <link rel='stylesheet' type='text/css' href='./styles.css' />
-        <script type='text/javascript' src='javaScript.js'> </script>
     </head>
     <body>
     <header class='header'>
@@ -17,9 +16,9 @@ function html_pageHeader(){
         </div>
         <nav class='header-navbar'>
             <ul class='header-navbar-links'>
-                <!--<li><a href='index.php'>STARTSEITE</a></li>
-                <li><a>ÜBER UNS</a></li>
-                <li><a>LEISTUNGEN</a></li>
+            <!--<li><a href='index.php'>START</a></li>-->
+                <li><a href='sign_up.php'>sign up!</a></li>
+            <!--<li><li><a>LEISTUNGEN</a></li>
                 <li><a>PREISE</a></li>
                 <li><a>REFERENZEN</a></li>
                 <li><a>IMPRESSUM</a></li>
@@ -56,8 +55,6 @@ function html_intern_pageHeader(){
 }
 
 function html_footer(){
-    include("db_connection.php");
-    $conn = return_db_connection();
     echo"<footer class='footer'>
             <div class='container'>
                 <p style='text-align:center;color:white;font-size:10px'>Made by: Team E in 2022<br>Module: Infrastruktur<br>University of Applied Sciences Bremerhaven</p>

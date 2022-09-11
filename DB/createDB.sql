@@ -12,6 +12,8 @@ create table bot_qa(
 
 create table bot_login(
   id int AUTO_INCREMENT,
+  first_name TEXT,
+  name TEXT,
   email TEXT,
   password TEXT,
   hint TEXT,
@@ -22,5 +24,5 @@ insert into bot_qa (q, a) values ('How are you','not so well');
 insert into bot_qa (q, a) values ('wassup','not much');
 insert into bot_qa (q, a) values ('How are you doing','doing well');
 insert into bot_qa (q, a) values ('How are you today','today im so happy');
-insert into bot_login (email, password, hint) values ('123@gmail.com','123', 'OneTwoThree');
+-- insert into bot_login (first_name, name, email, password, hint) values ('Peter','Lustig','123@gmail.com','123', 'OneTwoThree');
 
