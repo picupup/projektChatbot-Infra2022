@@ -24,9 +24,10 @@ hourEnd="$(date '+%H:%M:%S')"
 
 f1=~/tmp/dockerstatswatch/data.txt
 
-echo -e "Data will be shwon know \n $dateBegin $hourBegin" 
+echo -e "Data will be shwon now \n $dateBegin $hourBegin" 
 
 
-cat $f1 | sed -n "/^$dateBegin $hourBegin/,/^$dateEnd $hourEnd/p" | cut -d " " -f 9 |tr -d "%"
+cat $f1 | sed -n "/^$dateBegin $hourBegin/,/^$dateEnd $hourEnd/p" | cut -d "%" -f 1 | rev | cut -d " " -f 1 | rev
+#cat $f1 | sed -n "/^$dateBegin $hourBegin/,/^$dateEnd $hourEnd/p"
 
 echo -e "\n$dateEnd $hourEnd"
