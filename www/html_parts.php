@@ -5,6 +5,7 @@ function html_pageHeader(){
 <html>
     <head>
         <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'> 
         <title>Infrastruktur Team E</title>
         <link rel='icon' type='image/x-icon' href='./images/logo.png'>
         <link rel='stylesheet' type='text/css' href='./styles.css' />
@@ -16,7 +17,7 @@ function html_pageHeader(){
         </div>
         <nav class='header-navbar'>
             <ul class='header-navbar-links'>
-            <!--<li><a href='index.php'>START</a></li>-->
+                <li><a href='index.php'>login</a></li>
                 <li><a href='sign_up.php'>sign up!</a></li>
             <!--<li><li><a>LEISTUNGEN</a></li>
                 <li><a>PREISE</a></li>
@@ -40,7 +41,7 @@ function html_intern_pageHeader(){
     <body>
     <header class='header'>
         <div class='header-brand-wrapper'>
-            <a class='header-brand' href='chat.php'> <img src='./images/logo.png' alt='logo' id='logo'> </a>
+            <a class='header-brand' href='index.php'> <img src='./images/logo.png' alt='logo' id='logo'> </a>
         </div>
         <nav class='header-navbar'>
             <ul class='header-navbar-links'>
@@ -62,6 +63,19 @@ function html_footer(){
         </footer>    
     </body>
 </html>";
+}
+
+function html_not_logged_in(){
+   echo"<main class='messageMain'>
+<div class='message-container'>
+  <div class='message-box'>
+    <h1>Unfortunately you are not logged in!</h1>
+    <!--<p>you will be redirected to our homepage in 5 seconds</p>-->
+  </div>
+</div>
+</main>";
+//sleep(5);
+//header("Location: index.php");
 }
 ?>
 

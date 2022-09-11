@@ -2,6 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
 include("db_connection.php");
 include("check_email.php");
 
@@ -13,7 +14,6 @@ if(isset($_POST["submit"])) {
 		mysqli_execute($get_pwd);
 		$result = mysqli_stmt_get_result($get_pwd);
 		$affected = mysqli_affected_rows($conn);
-
 		if($affected > 0){
 			$row = mysqli_fetch_assoc($result);
 			$hash_pwd = $row['password'];
@@ -23,12 +23,13 @@ if(isset($_POST["submit"])) {
 		}else{
 			return false;
 		}
-
 	}
 	$mail_status = check_email($_POST["email"]);
 	$password_status = check_password($_POST["email"], $_POST["password"]);
 
 	if($mail_status and $password_status){
+		session_start();
+		$_SESSION["email"] = $_POST["email"];
 		header("Location: chat.php");
 	}else{
 		incorrect();
@@ -44,6 +45,7 @@ echo"
 	<div class='message-container'>
 	<div class='message-box'>
 	<h1>Login to access Robbi</h1><br>
+	<hr><br>
 	<form method='post' action='index.php'>
 		<input type='text' name='email' placeholder='mail adress'></input><br><br>
 		<input type='password' name='password' placeholder='Password'></input><br><br>

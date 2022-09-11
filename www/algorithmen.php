@@ -49,7 +49,7 @@ function search ($q){
       }
     };
     if($target_answer==""){
-        $target_answer="I couldn't find an answer to this question.";
+        $target_answer="I couldn't find an answer to your input. Do you want to teach me how to answer correctly?";
     }
    return "$target_answer";
 
