@@ -10,9 +10,13 @@ input=${1:-"Project test"}
 imgtxtTime=~/tmp/dockerstatswatch/img2.txt
 lastgp=~/tmp/dockerstatswatch/last.gp
 touch ~/tmp/dockerstatswatch/last.gp
+output=/var/www/html/docker-infra-2022-e-web/last.png
+if test $(echo $USER |grep docker) = "";then
+  output=$USER
+fi
 
 echo "set terminal pngcairo size 800,600 font 'Arial,12'
-  set output '/var/www/html/$USER/last.png'
+  set output '$output'
   set title '$input'
   set ylabel 'Test in percentage'
   set yrange [0:100]
