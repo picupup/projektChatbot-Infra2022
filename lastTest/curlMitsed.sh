@@ -15,11 +15,15 @@ sleep 0.7
 dateBegin="$(date '+%Y-%m-%d')"
 hourBegin="$(date '+%H:%M:%S')"
 echo -e "Starting at \n $dateBegin $hourBegin" 
+id=9090909090
 for i in {0..2};do
-  nohup $( seq 1000000 | parallel --max-args 0 --jobs 200% "curl -X 'GET' -s https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input'" ) >/dev/null 2>&1&
+  nohup $( seq 1000 | parallel --max-args 0 --jobs 100"curl -X 'GET' -s https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input'" ) >/dev/null 2>&1&
+  id=$!
+
 done
 echo "in between"
 
+#while test "$( echo $id )"
 
 #echo "$(date '+%Y-%m-%d_%H:%M:%S')"
 
