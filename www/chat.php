@@ -19,7 +19,7 @@ if(!isset($_SESSION["email"])){
     <div id='rectangle'>
       <div id='dialoge'></div><br>
       <form name='robbi' id='robbi' onsubmit='return false' >
-        <input type='text' id='question_line' name='question'>
+        <input type='text' id='question_line' name='question_line'>
         <button type='submit' value='Send' id='sub_butt' onclick='main()'>Send</button>
       </form> 
     </div>

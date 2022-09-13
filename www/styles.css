@@ -1,7 +1,20 @@
-
+#learn_butt{
+  color: white;
+  background-color: rgba(72, 145, 72, 0.747);
+  border-radius: 5px;
+  margin-block: 0%;
+  border: 2px ridge;
+  padding: 0.5px;
+}
+#learn_butt:hover{
+  color: black;
+}
 #sub_butt{
   width: 9%;
-  padding: 3px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   text-align:left
 }
 #question_line{
@@ -30,7 +43,8 @@
 }
 #dialoge{
   border-radius: 10px;
-  background-color: rgba(181, 158, 75, 0.735);
+  background-color: rgba(0, 0, 0, 0.548);
+  /* background-color: rgba(181, 158, 75, 0.735); */
   color: white;
   display: flex;
   flex-direction: column;
@@ -137,7 +151,7 @@ h1 {
 button {
   border-radius: 10px;
   padding: 1%;
- margin-block: 2%;
+  margin-block: 2%;
 }
 
 body {
