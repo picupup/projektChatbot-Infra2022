@@ -14,8 +14,12 @@ dateBegin="$(date '+%Y-%m-%d')"
 hourBegin="$(date '+%H:%M:%S')"
 echo -e "Starting at \n $dateBegin $hourBegin" 
 
-seq 1000 | parallel --max-args 0 --jobs 100 "curl -X 'GET' -s https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input'" > /dev/null
+nohup $( seq 10000 | parallel --max-args 0 --jobs 1020 "curl -X 'GET' -s https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input'" ) >/dev/null 2>&1&
 
+nohup $( seq 10000 | parallel --max-args 0 --jobs 1020 "curl -X 'GET' -s https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input'" ) >/dev/null 2>&1&
+
+
+seq 10000 | parallel --max-args 0 --jobs 1020 "curl -X 'GET' -s https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input'" > /dev/null
 
 #echo "$(date '+%Y-%m-%d_%H:%M:%S')"
 

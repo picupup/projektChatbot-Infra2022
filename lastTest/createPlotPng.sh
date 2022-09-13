@@ -5,6 +5,7 @@
 #\Thema: It creates a new gp -> png fil from data in img.txt
 #
 
+input=${1:-"Project test"}
 #imgtxt=~/tmp/dockerstatswatch/img.txt
 imgtxtTime=~/tmp/dockerstatswatch/img2.txt
 lastgp=~/tmp/dockerstatswatch/last.gp
@@ -12,7 +13,7 @@ touch ~/tmp/dockerstatswatch/last.gp
 
 echo "set terminal pngcairo size 800,600 font 'Arial,12'
   set output '/var/www/html/$USER/last.png'
-  set title 'Project test'
+  set title '$input'
   set ylabel 'Test in percentage'
   set yrange [0:100]
   set xdata time
