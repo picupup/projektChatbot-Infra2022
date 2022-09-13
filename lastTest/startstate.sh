@@ -15,6 +15,6 @@ f2=~/tmp/dockerstatswatch/err.log
 
 echo -e "" > $f1
 
-hbv_dockerstatswatch >> $f1 2> $f2 &
+hbv_dockerstatswatch > $f1 2> $f2 &
 
 echo $!

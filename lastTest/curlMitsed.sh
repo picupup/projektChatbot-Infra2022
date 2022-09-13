@@ -8,24 +8,25 @@
 input=${1:-"how are you"}
 input=$(echo "$input" |sed -E "s/ /%20/g")
 mkdir -p ~/tmp/dockerstatswatch
+ssh hopper echo -n "" > tmp/dockerstatswatch/data.txt
 
 #echo "$input"
 #./startstate.sh
-sleep 0.7
+#sleep 0.7
 dateBegin="$(date '+%Y-%m-%d')"
 hourBegin="$(date '+%H:%M:%S')"
 echo -e "Starting at \n $dateBegin $hourBegin" 
-id=9090909090
-for i in {0..2};do
-  nohup $( seq 1000 | parallel -j 150% "curl -X 'GET' -s https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input'" ) >/dev/null 2>&1&
-  id=$!
 
+for i in {0..10};do
+  curl -s -b jar-$i-$$ -c jar-$i-$$ -X 'GET' "https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input'" >/dev/null 2>&1&
+  idArray[${i}]=$!
 done
+
 echo "in between"
 
   #nohup $( seq 1000 | parallel --max-args 0 --jobs 100"curl -X 'GET' -s https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input'" ) >/dev/null 2>&1&
-while test "$( ps -e |grep $id )" != "";do
-  echo "waiting";
+for pID in ${idArray[*]}; do
+    wait $pID
 done
 
 #echo "$(date '+%Y-%m-%d_%H:%M:%S')"
