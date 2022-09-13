@@ -17,7 +17,7 @@ hourBegin="$(date '+%H:%M:%S')"
 echo -e "Starting at \n $dateBegin $hourBegin" 
 id=9090909090
 for i in {0..2};do
-  nohup $( seq 1000 | parallel --jobs 100"curl -X 'GET' -s https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input'" ) >/dev/null 2>&1&
+  nohup $( seq 1000 | parallel -j 100 "curl -X 'GET' -s https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input'" ) >/dev/null 2>&1&
   id=$!
 
 done
@@ -33,11 +33,11 @@ done
 dateEnd="$(date '+%Y-%m-%d')"
 hourEnd="$(date '+%H:%M:%S')"
 
-sleep 0.7
+#sleep 0.7
 
 imgtxt=~/tmp/dockerstatswatch/img.txt
 touch ~/tmp/dockerstatswatch/img.txt
-
+echo -n "" > $imgtxt
 ssh hopper repos/infra-2022-e/lastTest/dockerREQ/getstatistic.sh $dateBegin $hourBegin $dateEnd $hourEnd  > $imgtxt
 #cat $f1 | sed -n "/$dateBegin $hourBegin/,/$dateEnd $hourEnd/p"
 ./timeCreator.sh
