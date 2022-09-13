@@ -7,6 +7,8 @@
 
 input=${1:-"how are you"}
 input=$(echo "$input" |sed -E "s/ /%20/g")
+mkdir -p ~/tmp/dockerstatswatch
+
 #echo "$input"
 #./startstate.sh
 sleep 0.7
@@ -26,11 +28,10 @@ hourEnd="$(date '+%H:%M:%S')"
 
 sleep 0.7
 
-f1=~/tmp/dockerstatswatch/data.txt
 imgtxt=~/tmp/dockerstatswatch/img.txt
 touch ~/tmp/dockerstatswatch/img.txt
 
-cat $f1 | sed -n "/^$dateBegin $hourBegin/,/^$dateEnd $hourEnd/p" | cut -d "%" -f 1 | rev | cut -d " " -f 1 | rev > $imgtxt
+ssh hopper repos/infra-2022-e/lastTest/dockerREQ/getstatistic.sh $dateBegin $hourBegin $dateEnd $hourEnd  > $imgtxt
 #cat $f1 | sed -n "/$dateBegin $hourBegin/,/$dateEnd $hourEnd/p"
 ./timeCreator.sh
 ./createPlotPng.sh

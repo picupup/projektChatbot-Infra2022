@@ -7,7 +7,7 @@
 
 mkdir -p ~/tmp
 mkdir -p ~/tmp/dockerstatswatch
-touch ~/tmp/dockerstatswatch/data.txt
+touch ~/tmp/dockerstatswatch/data22.txt
 touch ~/tmp/dockerstatswatch/err.log
 
 f1=~/tmp/dockerstatswatch/data.txt
@@ -15,6 +15,6 @@ f2=~/tmp/dockerstatswatch/err.log
 
 echo -e "" > $f1
 
-hbv_dockerstatswatch > $f1 2> $f2 &
+hbv_dockerstatswatch >> $f1 2> $f2 &
 
 echo $!
