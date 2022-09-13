@@ -11,15 +11,17 @@ imgtxtTime=~/tmp/dockerstatswatch/img2.txt
 lastgp=~/tmp/dockerstatswatch/last.gp
 touch ~/tmp/dockerstatswatch/last.gp
 output=/var/www/html/docker-infra-2022-e-web/last.png
+ww=docker-infra-2022-e-web
 if test $(echo $USER |grep docker) = "";then
   output=$USER
+  ww=$USER
 fi
 
+  #set yrange [0:100]
 echo "set terminal pngcairo size 800,600 font 'Arial,12'
   set output '$output'
   set title '$input'
   set ylabel 'Test in percentage'
-  set yrange [0:100]
   set xdata time
   set xlabel 'time'
   set timefmt '%H:%M'
