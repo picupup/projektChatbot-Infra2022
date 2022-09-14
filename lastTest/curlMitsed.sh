@@ -9,9 +9,10 @@ input=${1:-"how are you"}
 input=$(echo "$input" |sed -E "s/ /%20/g")
 mkdir -p ~/tmp/dockerstatswatch
 #echo -n "" > ~/tmp/dockerstatswatch/data.txt
-
+p=$(pwd)
 #echo "$input"
-id=$(./startstate.sh)
+id=$(cd $p && ./startstate.sh)
+echo "id is $id"
 
 #sleep 0.7
 dateBegin="$(date '+%Y-%m-%d')"
