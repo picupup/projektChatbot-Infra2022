@@ -17,6 +17,6 @@ touch $f2
 
 echo -n "" > $f1
 
-hbv_dockerstatswatch > $f1 2>&1 &
+nohup hbv_dockerstatswatch > $f1 2>&1 &
 
 echo $!
