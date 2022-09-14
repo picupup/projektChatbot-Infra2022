@@ -35,7 +35,6 @@ echo "set terminal pngcairo size 800,600 font 'Arial,12'
       with linespoints \
         title '%' linewidth 4 linecolor rgb '#00A000'\
           smooth csplines" > $lastgp;
-
 gnuplot $lastgp;
 
 #cat $f1 | sed -n "/^$dateBegin $hourBegin/,/^$dateEnd $hourEnd/p"
