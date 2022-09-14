@@ -7,14 +7,16 @@
 
 mkdir -p ~/tmp
 mkdir -p ~/tmp/dockerstatswatch
-touch ~/tmp/dockerstatswatch/data22.txt
-touch ~/tmp/dockerstatswatch/err.log
 
-f1=~/tmp/dockerstatswatch/data.txt
-f2=~/tmp/dockerstatswatch/err.log
+f1=$HOME/tmp/dockerstatswatch/dataB.txt
+f2=$HOME/tmp/dockerstatswatch/err.log
 
-echo -e "" > $f1
+touch $f1
+touch $f2
 
-nohup hbv_dockerstatswatch > $f1 2>&1 $f2 &
+
+echo -n "" > $f1
+
+hbv_dockerstatswatch > $f1 2>&1 &
 
 echo $!

@@ -7,16 +7,18 @@
 
 input=${1:-"Project test"}
 #imgtxt=~/tmp/dockerstatswatch/img.txt
-imgtxtTime=~/tmp/dockerstatswatch/img2.txt
-lastgp=~/tmp/dockerstatswatch/last.gp
-touch ~/tmp/dockerstatswatch/last.gp
+imgtxtTime=$HOME/tmp/dockerstatswatch/img2.txt
+touch $imgtxtTime
+lastgp=$HOME/tmp/dockerstatswatch/last.gp
+touch $lastgp
 output=/var/www/html/docker-infra-2022-e-web/last.png
-
+cat $imgtxtTime
   #set yrange [0:100]
 echo "set terminal pngcairo size 800,600 font 'Arial,12'
   set output '/var/www/html/$USER/last.png'
   set title '$input'
   set ylabel 'Test in percentage'
+  set yrange [0:100]
   set xdata time
   set xlabel 'time'
   set timefmt '%H:%M'

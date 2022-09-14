@@ -8,10 +8,10 @@
 input=${1:-"how are you"}
 input=$(echo "$input" |sed -E "s/ /%20/g")
 mkdir -p ~/tmp/dockerstatswatch
-echo -n "" > ~/tmp/dockerstatswatch/data.txt
+#echo -n "" > ~/tmp/dockerstatswatch/data.txt
 
 #echo "$input"
-./startstate.sh
+#./startstate.sh
 #sleep 0.7
 dateBegin="$(date '+%Y-%m-%d')"
 hourBegin="$(date '+%H:%M:%S')"
@@ -32,14 +32,20 @@ dateEnd="$(date '+%Y-%m-%d')"
 hourEnd="$(date '+%H:%M:%S')"
 
 sleep 0.3
-
-imgtxt=~/tmp/dockerstatswatch/img.txt
-touch ~/tmp/dockerstatswatch/img.txt
+imgtxt=$HOME/tmp/dockerstatswatch/img.txt
+touch $imgtxt
 echo -n "" > $imgtxt
 #ssh hopper repos/infra-2022-e/lastTest/dockerREQ/getstatistic.sh $dateBegin $hourBegin $dateEnd $hourEnd 
 #cat $f1 | sed -n "/$dateBegin $hourBegin/,/$dateEnd $hourEnd/p"
+
+data=$(./getstatistic.sh $dateBegin $hourBegin $dateEnd $hourEnd)
+echo -n $data > $imgtxt
+echo -e "data:\n $data"
+echo "section 1"
 ./timeCreator.sh
+echo "section 2"
 ./createPlotPng.sh
+echo "section 3"
 echo -e "\nEnding at $dateEnd $hourEnd"
 
 echo -e "check out the results under \n https://informatik.hs-bremerhaven.de/$USER/last.png"
