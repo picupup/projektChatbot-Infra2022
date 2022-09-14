@@ -8,7 +8,7 @@
 input=${1:-"how are you"}
 input=$(echo "$input" |sed -E "s/ /%20/g")
 mkdir -p ~/tmp/dockerstatswatch
-ssh hopper echo -n "" > ~/tmp/dockerstatswatch/data.txt
+echo -n "" > ~/tmp/dockerstatswatch/data.txt
 
 #echo "$input"
 ./startstate.sh
@@ -23,7 +23,8 @@ tmpDir=$(pwd)
 
 echo "in between"
 cd $tmpDir
-  #nohup $( seq 1000 | parallel --max-args 0 --jobs 100"curl -X 'GET' -s https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input'" ) >/dev/null 2>&1&
+
+#nohup $( seq 1000 | parallel --max-args 0 --jobs 100"curl -X 'GET' -s https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input'" ) >/dev/null 2>&1&
 
 #echo "$(date '+%Y-%m-%d_%H:%M:%S')"
 
