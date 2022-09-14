@@ -11,7 +11,8 @@ mkdir -p ~/tmp/dockerstatswatch
 #echo -n "" > ~/tmp/dockerstatswatch/data.txt
 
 #echo "$input"
-#./startstate.sh
+id=$(./startstate.sh)
+
 #sleep 0.7
 dateBegin="$(date '+%Y-%m-%d')"
 hourBegin="$(date '+%H:%M:%S')"
@@ -32,6 +33,7 @@ dateEnd="$(date '+%Y-%m-%d')"
 hourEnd="$(date '+%H:%M:%S')"
 
 sleep 0.3
+kill $id
 imgtxt=$HOME/tmp/dockerstatswatch/img.txt
 touch $imgtxt
 echo -n "" > $imgtxt

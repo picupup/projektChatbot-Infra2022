@@ -11,11 +11,12 @@ imgtxtTime=$HOME/tmp/dockerstatswatch/img2.txt
 touch $imgtxtTime
 lastgp=$HOME/tmp/dockerstatswatch/last.gp
 touch $lastgp
-output=/var/www/html/docker-infra-2022-e-web/last.png
-cat $imgtxtTime
+output=/var/www/html/$USER/last.png
+touch $output
+echo -n "" > $output
   #set yrange [0:100]
 echo "set terminal pngcairo size 800,600 font 'Arial,12'
-  set output '/var/www/html/$USER/last.png'
+  set output '$output'
   set title '$input'
   set ylabel 'Test in percentage'
   set yrange [0:100]
