@@ -8,38 +8,34 @@
 input=${1:-"how are you"}
 input=$(echo "$input" |sed -E "s/ /%20/g")
 mkdir -p ~/tmp/dockerstatswatch
-ssh hopper echo -n "" > tmp/dockerstatswatch/data.txt
+ssh hopper echo -n "" > ~/tmp/dockerstatswatch/data.txt
 
 #echo "$input"
-#./startstate.sh
+./startstate.sh
 #sleep 0.7
 dateBegin="$(date '+%Y-%m-%d')"
 hourBegin="$(date '+%H:%M:%S')"
 echo -e "Starting at \n $dateBegin $hourBegin" 
+sleep 0.3
 
-for i in {0..10};do
-  curl -s -b jar-$i-$$ -c jar-$i-$$ -X 'GET' "https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input'" >/dev/null 2>&1&
-  idArray[${i}]=$!
-done
+tmpDir=$(pwd)
+./curl.sh
 
 echo "in between"
-
+cd $tmpDir
   #nohup $( seq 1000 | parallel --max-args 0 --jobs 100"curl -X 'GET' -s https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input'" ) >/dev/null 2>&1&
-for pID in ${idArray[*]}; do
-    wait $pID
-done
 
 #echo "$(date '+%Y-%m-%d_%H:%M:%S')"
 
 dateEnd="$(date '+%Y-%m-%d')"
 hourEnd="$(date '+%H:%M:%S')"
 
-#sleep 0.7
+sleep 0.3
 
 imgtxt=~/tmp/dockerstatswatch/img.txt
 touch ~/tmp/dockerstatswatch/img.txt
 echo -n "" > $imgtxt
-ssh hopper repos/infra-2022-e/lastTest/dockerREQ/getstatistic.sh $dateBegin $hourBegin $dateEnd $hourEnd 
+#ssh hopper repos/infra-2022-e/lastTest/dockerREQ/getstatistic.sh $dateBegin $hourBegin $dateEnd $hourEnd 
 #cat $f1 | sed -n "/$dateBegin $hourBegin/,/$dateEnd $hourEnd/p"
 ./timeCreator.sh
 ./createPlotPng.sh
