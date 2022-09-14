@@ -42,8 +42,4 @@ echo -n "" > $imgtxt
 ./createPlotPng.sh
 echo -e "\nEnding at $dateEnd $hourEnd"
 
-ww=docker-infra-2022-e-web
-if test $(echo $USER |grep docker) = "";then
-  ww=$USER
-fi
-echo -e "check out the results under \n https://informatik.hs-bremerhaven.de/$ww/last.png"
+echo -e "check out the results under \n https://informatik.hs-bremerhaven.de/$USER/last.png"
