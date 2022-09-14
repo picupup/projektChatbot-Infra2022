@@ -7,6 +7,6 @@ beginD=${1:?"Please insert starting date and time."} # e.g 2022-09-10 12:30:12
 beginT=${2:?"Please insert starting date and time."} # e.g 2022-09-10 12:30:12
 endD=${3:?"Please isnert ending time and date."}
 endT=${4:?"Please isnert ending time and date."}
-f1=~/tmp/dockerstatswatch/dataB.txt
+f1=$HOME/tmp/dockerstatswatch/dataB.txt
 cat $f1 | sed -n "/^$beginD $beginT/,/^$endD $endT/p" | cut -d "%" -f 1 | rev | cut -d " " -f 1 | rev
 #cat $f1 | sed -n "/^$beginD $beginT/,/^$endD $endT/p"
