@@ -44,8 +44,8 @@ echo -n "" > $imgtxt
 data=$(./getstatistic.sh $dateBegin $hourBegin $dateEnd $hourEnd)
 echo -n $data > $imgtxt
 echo -e "data:\n $data"
-if test $(echo -n "$data" | tr -d " " | xargs) = "";then 
-  echo "There were not input from dockerstatwatch.\n Exiting now"
+if test -z "$data";then 
+  echo -e "There were no input from dockerstatwatch.\n Exiting now"
   exit 1
 fi 
 echo "section 1"
