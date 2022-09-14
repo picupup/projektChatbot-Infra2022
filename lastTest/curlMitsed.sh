@@ -41,7 +41,7 @@ echo -n "" > $imgtxt
 #ssh hopper repos/infra-2022-e/lastTest/dockerREQ/getstatistic.sh $dateBegin $hourBegin $dateEnd $hourEnd 
 #cat $f1 | sed -n "/$dateBegin $hourBegin/,/$dateEnd $hourEnd/p"
 
-data=$(./getstatistic.sh $dateBegin $hourBegin $dateEnd $hourEnd)
+data=$(cd $p && ./getstatistic.sh $dateBegin $hourBegin $dateEnd $hourEnd)
 echo -n $data > $imgtxt
 echo -e "data:\n $data"
 if test -z "$data";then 
