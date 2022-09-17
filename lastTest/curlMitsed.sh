@@ -26,20 +26,13 @@ tmpDir=$(pwd)
 echo "in between"
 cd $tmpDir
 
-#nohup $( seq 1000 | parallel --max-args 0 --jobs 100"curl -X 'GET' -s https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input'" ) >/dev/null 2>&1&
-
-#echo "$(date '+%Y-%m-%d_%H:%M:%S')"
-
 dateEnd="$(date '+%Y-%m-%d')"
 hourEnd="$(date '+%H:%M:%S')"
 
 sleep 0.3
-#kill $id
 imgtxt=$HOME/tmp/dockerstatswatch/img.txt
 touch $imgtxt
 echo -n "" > $imgtxt
-#ssh hopper repos/infra-2022-e/lastTest/dockerREQ/getstatistic.sh $dateBegin $hourBegin $dateEnd $hourEnd 
-#cat $f1 | sed -n "/$dateBegin $hourBegin/,/$dateEnd $hourEnd/p"
 
 data=$(cd $p && ./getstatistic.sh $dateBegin $hourBegin $dateEnd $hourEnd)
 echo -n $data > $imgtxt
