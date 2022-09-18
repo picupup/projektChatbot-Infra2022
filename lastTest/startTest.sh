@@ -8,23 +8,16 @@
 input=${1:-"how are you"}
 input=$(echo "$input" |sed -E "s/ /%20/g")
 mkdir -p ~/tmp/dockerstatswatch
-#echo -n "" > ~/tmp/dockerstatswatch/data.txt
-p=$(pwd)
-#echo "$input"
-#id=$(cd $p && ./startstate.sh)
-echo "id is $id"
 
-#sleep 0.7
 dateBegin="$(date '+%Y-%m-%d')"
 hourBegin="$(date '+%H:%M:%S')"
 echo -e "Starting at \n $dateBegin $hourBegin" 
 sleep 0.3
 
-tmpDir=$(pwd)
+dir=$(pwd)
 ./curl.sh
 
-echo "in between"
-cd $tmpDir
+cd $dir
 
 dateEnd="$(date '+%Y-%m-%d')"
 hourEnd="$(date '+%H:%M:%S')"
@@ -34,7 +27,7 @@ imgtxt=$HOME/tmp/dockerstatswatch/img.txt
 touch $imgtxt
 echo -n "" > $imgtxt
 
-data=$(cd $p && ./getstatistic.sh $dateBegin $hourBegin $dateEnd $hourEnd)
+data=$(cd $dir && ./getstatistic.sh $dateBegin $hourBegin $dateEnd $hourEnd)
 echo -n $data > $imgtxt
 echo -e "data:\n $data"
 if test -z "$data";then 

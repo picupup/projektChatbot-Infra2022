@@ -4,7 +4,7 @@
 mkdir -p ~/tmp
 mkdir -p ~/tmp/dockerstatswatch
 
-f1=$HOME/tmp/dockerstatswatch/dataB.txt
+f1=$HOME/tmp/dockerstatswatch/dataC.txt
 f2=$HOME/tmp/dockerstatswatch/err.log
 
 touch $f1

@@ -9,4 +9,3 @@ endD=${3:?"Please isnert ending time and date."}
 endT=${4:?"Please isnert ending time and date."}
 f1=$HOME/tmp/dockerstatswatch/dataC.txt
 cat $f1 | sed -n "/^$beginD $beginT/,/^$endD $endT/p" | cut -d "%" -f 1 | rev | cut -d " " -f 1 | rev
-#cat $f1 | sed -n "/^$beginD $beginT/,/^$endD $endT/p"
