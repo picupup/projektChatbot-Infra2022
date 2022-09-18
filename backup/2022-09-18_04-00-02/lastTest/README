@@ -1,0 +1,10 @@
+-First start "startstate.sh" in a different shell screen.
+-Start the test using the script "curlMitsed.sh".
+-The Out put link will be shown once the test is over
+
++The test results is being saved in a file (~/tmp/dockerstatswatch/img.txt)
++This Test has to be converted in form of time (t) and y data for projecting as a mathematical curve.
++Using the time creator we assign a time stamp to every y line or data and save it in img2.txt
++Afterwards we visulize this data file (img2.txt) using the bash script createPlotPng.sh and save it in www path
+
+
