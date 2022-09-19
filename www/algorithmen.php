@@ -4,7 +4,7 @@ function search ($q){
   ini_set('display_startup_errors', 1);
   error_reporting(E_ALL);
 
-  include ("db_connection.php");
+  include_once("db_connection.php");
   $conn=return_db_connection();
   $sql="select bot_qa.q, bot_qa.a FROM bot_qa"; // Gives all in teh database saved answers and questions
   $result = mysqli_query($conn, $sql);
@@ -46,7 +46,7 @@ function search ($q){
     };
   }
   if($target_answer==""){
-    $target_answer="I couldn't find an answer to your input. Do you want to teach me how to answer correctly? Say 'yes'";
+    $target_answer="I didn't find an answer. Do youwant to help me?";
   }
   return "$target_answer";
 }

@@ -14,7 +14,7 @@ function getAnswer(question){
 			printChat(xhr.response, "answer")
 		}
 	}
-	xhr.open("GET", 'call_algorithm.php' + "?question='"+question+"'", true);
+	xhr.open("GET", 'call_algorithm.php' + "?question="+question, true);
 	xhr.send();
 }
 //function to create an new DOM-Element and to put it on the site

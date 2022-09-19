@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 include("check_email.php");
-include_once("user.php");
+include_once("class_user.php");
 include("html_parts.php");
 
 html_pageHeader();

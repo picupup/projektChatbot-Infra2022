@@ -1,5 +1,5 @@
 <?php
-include("user.php");
+include("class_user.php");
 function check_password($post_email, $post_password){
 	$user = new user();
 	$result = ($user->get_password($post_email));

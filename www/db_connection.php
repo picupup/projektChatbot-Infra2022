@@ -16,7 +16,7 @@ function return_db_connection(){
 function return_redis_connection(){
     include("../private/redis.inc.php");
     $redis = new Redis();
-    $redis->connect("docker-host",$redisport);
+    $redis->connect($redishost,$redisport);
     $redis->auth($redispassword);
     return $redis;
 }

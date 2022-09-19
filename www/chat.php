@@ -5,11 +5,10 @@ error_reporting(E_ALL);
 session_start();
 
 include("html_parts.php");
-include("user.php");
+include("class_user.php");
 
 if(!isset($_SESSION["email"])){
-  html_pageHeader();
-  html_not_logged_in();
+  header("Location: not_logged_in.php");
 }else{
   $user = new user();
   $user_name = ($user->get_first_name($_SESSION["email"]));
