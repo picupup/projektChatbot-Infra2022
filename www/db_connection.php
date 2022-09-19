@@ -13,16 +13,11 @@ function return_db_connection(){
     }
 }
 
-
-// class db_connection {
-//     public function __construct(){
-//         include("../private/dbconnection.inc.php");
-//         $conn = new mysqli($host, $user, $password, $database);
-//         if (!$conn){
-//             die("Connection failed: " . mysqli_connect_error());
-//         }else {
-//             return $conn;
-//         }
-//     }
-// }
+function return_redis_connection(){
+    include("../private/redis.inc.php");
+    $redis = new Redis();
+    $redis->connect("docker-host",$redisport);
+    $redis->auth($redispassword);
+    return $redis;
+}
 ?>

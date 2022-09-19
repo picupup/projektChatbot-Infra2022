@@ -9,6 +9,8 @@ if [ $USER = "infra-2022-e" ]
 ## preparations
 dst=/var/www/html/docker-$USER-web/robbi
 ssh mydocker "mkdir -p $dst"
+## execute "erstelle_DB_zugang.sh"
+bash $repo/erstelle_DB_zugang.sh
 ## mirroring
 rsync -av $repo/www/ mydocker:$dst --delete --progress
 ## Happybit

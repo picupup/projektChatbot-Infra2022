@@ -11,8 +11,10 @@ con=/var/www/html/$USER/private/dbconnection.inc.php
 dir=/var/www/html/$USER/private/
 
 if test ! -e $con_redis; then
-	echo "redispassword='_pw_'" > $con_redis;
-	echo "redisport='_port_'" >> $con_redis;
+	echo "<?php" > $con_redis;
+	echo "\$redispassword='_pw_';" >> $con_redis;
+	echo "\$redisport='_port_';" >> $con_redis;
+	echo "?>" >> $con_redis;
 	pwline=$(grep ^password ~/.my.cnf|head -n1)
 	pw=${pwline#*=}
 	sed -i "s/_pw_/$pw/" $con_redis

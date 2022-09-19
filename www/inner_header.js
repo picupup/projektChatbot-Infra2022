@@ -5,7 +5,6 @@ function main(){
 	printChat(form_question, "question")
 	getAnswer(form_question)
 	form['question_line'].value = ""
-	var answer = getElementBy
 }
 //gets the the answer per Ajax from the algorithm
 function getAnswer(question){
@@ -13,7 +12,6 @@ function getAnswer(question){
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && xhr.status == 200) {
 			printChat(xhr.response, "answer")
-			// return xhr.response
 		}
 	}
 	xhr.open("GET", 'call_algorithm.php' + "?question='"+question+"'", true);

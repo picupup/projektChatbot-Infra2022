@@ -26,7 +26,7 @@ echo "
         <label class='sign_up_label' form='sign_up' for='password2'>Repeat Password: </label>
 		<input id='password2' type='password' name='password2' placeholder='Password' required></input><br><br>
         <label class='sign_up_label' form='sign_up' for='hint'>Security Hint: </label>
-		<input id='hint' type='password' name='hint' placeholder='Hint'></input><br><br>
+		<input id='hint' type='text' name='hint' placeholder='Hint'></input><br><br>
         <hr><br>
         <div id='register'>
 		<button id='register_button' type='submit' name='register'>register</button>

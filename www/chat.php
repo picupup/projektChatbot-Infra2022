@@ -5,16 +5,20 @@ error_reporting(E_ALL);
 session_start();
 
 include("html_parts.php");
+include("user.php");
 
 if(!isset($_SESSION["email"])){
   html_pageHeader();
   html_not_logged_in();
 }else{
+  $user = new user();
+  $user_name = ($user->get_first_name($_SESSION["email"]));
   html_intern_pageHeader();
   echo"<main class='messageMain'>
 <div class='message-container'>
   <div class='message-box'>
-    <h1>Talk to Robbi</h1><br>
+    <p>Hello $user_name</p><br>
+    <h1>talk to Robbi:</h1><br>
     <hr><br>
     <div id='rectangle'>
       <div id='dialoge'></div><br>
