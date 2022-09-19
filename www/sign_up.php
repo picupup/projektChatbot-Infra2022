@@ -2,43 +2,11 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-include("db_connection.php");
+
 include("check_email.php");
-
-function create_acc($first_name, $name, $email, $password, $hint){
-    $conn = return_db_connection();
-    $insert_acc = mysqli_prepare($conn, "INSERT INTO bot_login(first_name, name, email, password, hint) values (?,?,?,?,?)");
-    $insert_acc->bind_param('sssss', $first_name, $name, $email, $password, $hint);
-    mysqli_execute($insert_acc);
-}
-
-if(isset($_POST['register'])){
-    $email_status = check_email($_POST["email"]);
-    if($email_status == 0){
-        if($_POST["password"] == $_POST["password2"]){
-            $pwd_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
-            create_acc($_POST["first_name"], $_POST["surname"], $_POST["email"], $pwd_hash, $_POST["hint"]);
-            echo "Thank you for sign up! <br> You can login now.";
-            //header("Location: index.php");
-        }else{
-            echo "<script>
-                function showMessage(){
-                    alert('Your Passwords does not match');
-                }
-                showMessage() 
-            </script>";
-        }
-    }else{
-        echo "<script>
-        function showMessage(){
-            alert('email adresse already assigned');
-        }
-        showMessage() 
-    </script>";
-    }
-}
-
+include_once("user.php");
 include("html_parts.php");
+
 html_pageHeader();
 echo "
 <main class='messageMain'>
@@ -46,7 +14,7 @@ echo "
 	<div class='message-box'>
 	<h1>Get your own account:</h1><br>
     <hr><br>
-	<form id='sign_up' name='sign_up' method='post' action='sign_up.php'>
+	<form id='sign_up' name='sign_up' method='post' onsubmit='return false'>
         <label class='sign_up_label' form='sign_up' for='first_name'>First Name: </label>
         <input id='first_name' type='text' name='first_name' placeholder='First Name'></input><br><br>
         <label class='sign_up_label' form='sign_up' for='surname'>Surname: </label>
@@ -68,4 +36,20 @@ echo "
 	</div>
 </main>";
 html_footer();
+
+if(isset($_POST['register'])){
+    $email_status = check_email($_POST["email"]);
+    if(! $email_status){
+        if($_POST["password"] == $_POST["password2"]){
+            $pwd_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
+            $user = new user();
+            $user->save_user($_POST["first_name"], $_POST["surname"], $_POST["email"], $pwd_hash, $_POST["hint"]);
+            header("Location: thank_you.php");
+        }else{
+            echo "<script type='text/javascript'>err_pwd_match()</script>";
+        }
+    }else{
+        echo "<script type='text/javascript'>err_email_exists()</script>";
+    }
+}
 ?>

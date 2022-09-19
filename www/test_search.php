@@ -7,6 +7,5 @@ include("algorithmen.php");
 
 
 
-echo search("how are") . "\n";
-
+// echo search("how are") . "\n"; 
 ?>

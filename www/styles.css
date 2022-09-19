@@ -1,3 +1,10 @@
+#error {
+  color: red;
+  font-size: 10pt;
+  text-align: left;
+  margin-left: 3%;
+}
+
 #learn_butt{
   color: white;
   background-color: rgba(72, 145, 72, 0.747);

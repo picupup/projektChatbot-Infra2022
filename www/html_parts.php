@@ -5,10 +5,11 @@ function html_pageHeader(){
 <html>
     <head>
         <meta charset='utf-8'>
-        <meta name='viewport' content='width=device-width, initial-scale=1.0'> 
+        <!--<meta name='viewport' content='width=device-width, initial-scale=1.0'>-->
         <title>Infrastruktur Team E</title>
         <link rel='icon' type='image/x-icon' href='./images/logo.png'>
         <link rel='stylesheet' type='text/css' href='./styles.css' />
+        <script type='text/javascript' src='outer_header.js'> </script>
     </head>
     <body>
     <header class='header'>
@@ -30,13 +31,13 @@ function html_pageHeader(){
 }
 function html_intern_pageHeader(){
     echo"<!DOCTYPE html>
-<html class='intern'>
+<html>
     <head>
         <meta charset='utf-8'>
         <title>Infrastruktur Team E</title>
         <link rel='icon' type='image/x-icon' href='./images/logo.png'>
         <link rel='stylesheet' type='text/css' href='./styles.css' />
-        <script type='text/javascript' src='javaScript.js'> </script>
+        <script type='text/javascript' src='inner_header.js'> </script>
     </head>
     <body>
     <header class='header'>
@@ -49,7 +50,7 @@ function html_intern_pageHeader(){
                 <a href='kundenDatenbank.php'><li>KUNDEN</li></a>
                 <a href='sprachmittlerDatenbank.php'><li>MITTLER</li></a>
                 <a href='./testprototyp/osm.html'><li>KARTE</li></a>-->
-                <a href='index.php'><li>logout</li></a>
+                <a href='logout.php'><li>logout</li></a>
             </ul>
         </nav>
 </header>";
@@ -62,7 +63,9 @@ function html_footer(){
             </div>
         </footer>    
     </body>
-</html>";
+</html>
+";
+
 }
 
 function html_not_logged_in(){

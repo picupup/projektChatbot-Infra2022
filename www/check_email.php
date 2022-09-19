@@ -1,17 +1,12 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+//To use this function you have to include it in your file.
+// Important! You also have to include_once("user.php"); !
 
-function check_email($email_post){
-    $conn = return_db_connection();
-
-    $get_mail = mysqli_prepare($conn, "SELECT * FROM bot_login WHERE email = ? ");
-	$get_mail->bind_param('s',$email_post);
-
-	mysqli_execute($get_mail);
-	$result = mysqli_stmt_get_result($get_mail);
-    $affected = mysqli_affected_rows($conn);
+function check_email($post_email){
+    $user = new user();
+    $result = ($user->get_email($post_email));
+    // $email = $result[0]; // email is returnt but is not required
+    $affected = $result[1];
     
     if($affected == 0){
         return false;
