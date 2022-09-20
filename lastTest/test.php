@@ -17,7 +17,7 @@ echo "<html>
     <meta charset='UTF-8'>
     <title>HTML Syntax</title>
 </head>
-<body>"
+<body>";
 
 foreach ($files2 as $file) {
   echo "<label>$file</label><br>\n";
@@ -25,4 +25,4 @@ foreach ($files2 as $file) {
 }
 
 echo "</body>
-</html>"
+</html>";
