@@ -12,12 +12,13 @@ result=$out/test_result
 mkdir -p $result
 rm -r $result/*
 out=/var/www/html/$USER
-touch ~/tmpt/test.log
+mkdir -p ~/tmp
+touch ~/tmp/test.log
 
 
 for i in $(seq 1 $testNr);do
   loopNr=$(($loopNr * $i))
-  ./startTest.sh $loopNr > ~/tmpt/test.log
+  ./startTest.sh $loopNr > ~/tmp/test.log
   cp $out/last.png $result/$loopNr.png
   echo "https://informatik.hs-bremerhaven.de/$USER/test_result/$loopNr.png"
 done
