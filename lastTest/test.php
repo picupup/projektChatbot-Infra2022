@@ -10,7 +10,7 @@ error_reporting(E_ALL);
 
 $user=get_current_user();
 $dir="/var/www/html/$user/test_result";
-$files = scandir($dir);
+$files = scandir("./test_result");
 $files2 = array_diff(scandir($dir), array('..', '.'));
 $ww="https://informatik.hs-bremerhaven.de/infra-2022-e/test_result";
 //print_r($files1);
