@@ -15,6 +15,7 @@ output=/var/www/html/$USER/last.png
 touch $output
 echo -n "" > $output
   #set yrange [0:100]
+#smooth csplines
 echo "set terminal pngcairo size 800,600 font 'Arial,12'
   set output '$output'
   set title '$input'
@@ -33,8 +34,7 @@ echo "set terminal pngcairo size 800,600 font 'Arial,12'
   set xtics nomirror
   plot '$imgtxtTime' using 1:2 \
       with linespoints \
-        title '%' linewidth 4 linecolor rgb '#00A000'\
-          smooth csplines" > $lastgp;
+        title '%' linewidth 4 linecolor rgb '#00A000' " > $lastgp;
 gnuplot $lastgp;
 
 #cat $f1 | sed -n "/^$dateBegin $hourBegin/,/^$dateEnd $hourEnd/p"
