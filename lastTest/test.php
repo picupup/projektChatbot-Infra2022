@@ -23,7 +23,7 @@ echo "<html>
 <body>";
 
 foreach ($files2 as $file) {
-  echo "<label>Test with complexity of 1000 X $file</label><br>\n";
+  echo "<label>Test with following number of requests: 1000 x $file</label><br>\n";
   echo "<img src=\"$ww/$file\" alt=\"$ww/$file\">\n";
 }
 
