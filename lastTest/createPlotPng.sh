@@ -20,7 +20,6 @@ echo "set terminal pngcairo size 800,600 font 'Arial,12'
   set output '$output'
   set title '$input'
   set ylabel 'Test in percentage'
-  set yrange [0:15]
   set xdata time
   set xlabel 'time'
   set timefmt '%H:%M'
