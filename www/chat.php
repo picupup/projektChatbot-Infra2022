@@ -11,7 +11,7 @@ if(!isset($_SESSION["email"])){
   header("Location: not_logged_in.php");
 }else{
   $user = new user();
-  $user_name = ($user->get_first_name($_SESSION["email"]));
+  $user_name = $user->get_first_name($_SESSION["email"]);
   html_intern_pageHeader();
   echo"<main class='messageMain'>
 <div class='message-container'>

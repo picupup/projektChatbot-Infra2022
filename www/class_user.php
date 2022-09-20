@@ -51,7 +51,7 @@ class user {
         return array($row['email'], $affected);
     }
 
-    public function get_password($email){
+    private function get_password($email){
         $conn = return_db_connection();
         $get = mysqli_prepare($conn, "SELECT password FROM bot_login WHERE email = ? ");
 		$get->bind_param('s', $email);
@@ -75,5 +75,31 @@ class user {
         $row = mysqli_fetch_assoc($result);
         mysqli_close($conn);
         return $row['hint'];
+    }
+
+    public function is_pwd_right($post_email, $post_password){
+        $result = $this->get_password($post_email);
+        $password_hash = $result[0];
+        $affected = $result[1];
+        if($affected > 0){
+            if(password_verify($post_password, $password_hash)){
+                return true;
+            }
+            }else{
+                return false;
+        }
+    }
+
+    public function exist_email($post_email){
+        $user = new user();
+        $result = $this->get_email($post_email);
+        // $email = $result[0]; // email is returnt but is not required
+        $affected = $result[1];
+        
+        if($affected == 0){
+            return false;
+        }else{
+            return true;
+        }
     }
 }

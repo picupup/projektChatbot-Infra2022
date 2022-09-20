@@ -57,7 +57,7 @@
   flex-direction: column;
   overflow-y: auto;
   min-height: 100px;
-  max-height: 200px;
+  max-height: 500px;
   /* border: 1px solid black; */
 }
 #rectangle{

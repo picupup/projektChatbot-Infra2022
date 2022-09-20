@@ -3,9 +3,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include("check_password.php");
-include("check_email.php");
+// include("check_password.php");
+// include("check_email.php");
 include("html_parts.php");
+include("class_user.php");
 
 html_pageHeader();
 echo"
@@ -25,8 +26,9 @@ echo"
 html_footer();
 
 if(isset($_POST["submit"])) {
-	$mail_status = check_email($_POST["email"]);
-	$password_status = check_password($_POST["email"], $_POST["password"]);
+	$user = new user;
+	$mail_status = $user->exist_email($_POST["email"]);
+	$password_status = $user->is_pwd_right($_POST["email"], $_POST["password"]);
 
 	if($mail_status and $password_status){
 		session_start();

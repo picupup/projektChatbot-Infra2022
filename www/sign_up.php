@@ -3,8 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include("check_email.php");
-include_once("class_user.php");
+include("class_user.php");
 include("html_parts.php");
 
 html_pageHeader();
@@ -14,7 +13,7 @@ echo "
 	<div class='message-box'>
 	<h1>Get your own account:</h1><br>
     <hr><br>
-	<form id='sign_up' name='sign_up' method='post' onsubmit='return false'>
+	<form id='sign_up' name='sign_up' method='post' onsubmit='sign_up.php'>
         <label class='sign_up_label' form='sign_up' for='first_name'>First Name: </label>
         <input id='first_name' type='text' name='first_name' placeholder='First Name'></input><br><br>
         <label class='sign_up_label' form='sign_up' for='surname'>Surname: </label>
@@ -38,11 +37,11 @@ echo "
 html_footer();
 
 if(isset($_POST['register'])){
-    $email_status = check_email($_POST["email"]);
+    $user = new user;
+    $email_status = $user->exist_email($_POST["email"]);
     if(! $email_status){
         if($_POST["password"] == $_POST["password2"]){
             $pwd_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
-            $user = new user();
             $user->save_user($_POST["first_name"], $_POST["surname"], $_POST["email"], $pwd_hash, $_POST["hint"]);
             header("Location: thank_you.php");
         }else{
