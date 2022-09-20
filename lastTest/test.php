@@ -18,7 +18,7 @@ $ww="https://informatik.hs-bremerhaven.de/infra-2022-e/test_result";
 echo "<html>
 <head>
     <meta charset='UTF-8'>
-    <title>HTML Syntax</title>
+    <title>Test results</title>
 </head>
 <body>";
 
