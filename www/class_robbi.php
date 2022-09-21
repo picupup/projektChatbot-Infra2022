@@ -8,6 +8,7 @@ class robbi{
     private $am_ready = "Okay, I'll save your next entry as answer to your question.";
     private $sorry_don_know = "I didn't find an answer. Do you want to help me? Say 'yes'";
     private $saved_it = "Saved new record.";
+    private $sorry_ill_save_next = "Oh no, how embarrassing. I will save your next input as answer to your question.";
     public $message1;
     public $message2;
     public $message3;
@@ -21,16 +22,24 @@ class robbi{
     public function main($q){
         
         $this->sliding_window($q);
-
-        if ($this->message4 == $this->sorry_don_know && $this->message5 == "yes"){
+        if($this->message5 == "not right!"){
+            $answer = $this->sorry_ill_save_next;
+            $this->sliding_window($answer);
+            return $answer;
+        }elseif($this->message3 == "not right!" && $this->message4 = $this->sorry_ill_save_next){
+            $this->save_new_record($this->message1, $q);
+            $answer = "$this->saved_it Try to enter '$this->message1' again.";
+            $this->sliding_window($this->saved_it);
+            return "$answer";
+        }elseif($this->message4 == $this->sorry_don_know && $this->message5 == "yes"){
             $answer = $this->am_ready;
             $this->sliding_window($answer);
             return $answer;
         }elseif($this->message2 == $this->sorry_don_know && $this->message3 == "yes" && $this->message4 == $this->am_ready){
             $this->save_new_record($this->message1, $q);
-            $answer = $this->saved_it;
-            $this->sliding_window($answer);
-            return "$answer Try to enter '$this->message1' again.";
+            $answer = "$this->saved_it Try to enter '$this->message1' again.";
+            $this->sliding_window($this->saved_it);
+            return "$answer";
         }else{
             $answer = $this->search($q);
             $this->sliding_window($answer);
