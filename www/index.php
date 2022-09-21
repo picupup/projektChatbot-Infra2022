@@ -16,8 +16,8 @@ echo"
 	<h1>Login to access Robbi</h1><br>
 	<hr><br>
 	<form id='login_form' method='post' action='index.php'>
-		<input type='text' name='email' placeholder='mail adress'></input><br><br>
-		<input type='password' name='password' placeholder='Password' ></input><br><br>
+		<input id='email' type='text' name='email' placeholder='mail adress'></input><br><br>
+		<input id='password' type='password' name='password' placeholder='Password' ></input><br><br>
 		<button type='submit' name='submit'>Login</button>
 	</form>
 	</div>

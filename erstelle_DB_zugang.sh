@@ -34,4 +34,5 @@ fi
 ssh mydocker "mkdir -p /var/www/html/docker-$USER-web/private/"
 scp $dir/* mydocker:/var/www/html/docker-$USER-web/private/
 
-
+# ergibt für Redis zwar keinen Sinn, da auf docker andere Port-Daten gebraucht werden. Aber solange 
+# Redis auf Hopper nicht genutzt wird, wird es nicht auffallen. - SR

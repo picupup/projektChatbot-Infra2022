@@ -24,13 +24,13 @@ class robbi{
 
         if ($this->message4 == $this->sorry_don_know && $this->message5 == "yes"){
             $answer = $this->am_ready;
-            echo $answer;
             $this->sliding_window($answer);
+            return $answer;
         }elseif($this->message2 == $this->sorry_don_know && $this->message3 == "yes" && $this->message4 == $this->am_ready){
             $this->save_new_record($this->message1, $q);
             $answer = $this->saved_it;
-            echo "$answer Try to enter '$this->message1' again.";
             $this->sliding_window($answer);
+            return "$answer Try to enter '$this->message1' again.";
         }else{
             $answer = $this->search($q);
             $this->sliding_window($answer);
