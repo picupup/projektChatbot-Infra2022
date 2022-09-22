@@ -19,12 +19,12 @@ echo -n "" > $output
 echo "set terminal pngcairo size 800,600 font 'Arial,12'
   set output '$output'
   set title '$input'
-  set ylabel 'Test in percentage'
+  set ylabel 'Load Usage [%]'
   set xdata time
-  set xlabel 'time'
+  set xlabel 'Time [Min.]'
   set timefmt '%H:%M'
-  set xrange [ '00:00' : ]
-  set format x '%H:%M'
+  set xrange [ '00:00:00' : ]
+  set format x '%H:%M:%S'
   set style line 12 lc rgb '#808080' lt 1 lw 1
   set grid back ls 12
   set style line 11 lc rgb '#808080' lt 1
