@@ -51,6 +51,7 @@ function html_intern_pageHeader(){
                 <a href='sprachmittlerDatenbank.php'><li>MITTLER</li></a>
                 <a href='./testprototyp/osm.html'><li>KARTE</li></a>-->
                 <a href='logout.php'><li>logout</li></a>
+                <!--<img src='./images/user_icon.png' alt='userIcon' id='user_icon'>-->
             </ul>
         </nav>
 </header>";

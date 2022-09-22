@@ -17,6 +17,7 @@ create table bot_login(
   email TEXT,
   password TEXT,
   hint TEXT,
+  login_status TEXT,
   PRIMARY KEY (id)
 );
 

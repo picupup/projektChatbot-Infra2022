@@ -77,6 +77,25 @@ class user {
         return $row['hint'];
     }
 
+    public function get_login_status($email){
+        $conn = return_db_connection();
+        $get = mysqli_prepare($conn, "SELECT login_status FROM bot_login WHERE email = ? ");
+		$get->bind_param('s', $email);
+		mysqli_execute($get);
+        $result = mysqli_stmt_get_result($get);
+        $row = mysqli_fetch_assoc($result);
+        mysqli_close($conn);
+        return $row['login_status'];
+    }
+
+    public function update_login_status($email, $flag){
+        $conn = return_db_connection();
+        $insert_status = mysqli_prepare($conn, "UPDATE bot_login SET login_status = ? WHERE email = ?");
+        $insert_status->bind_param('ss', $flag, $email);
+        mysqli_execute($insert_status);
+        mysqli_close($conn);
+    }
+
     public function is_pwd_right($post_email, $post_password){
         $result = $this->get_password($post_email);
         $password_hash = $result[0];

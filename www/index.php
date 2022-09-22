@@ -33,6 +33,7 @@ if(isset($_POST["submit"])) {
 	if($mail_status and $password_status){
 		session_start();
 		$_SESSION["email"] = $_POST["email"];
+		$user->update_login_status($_POST["email"], "1");
 		header("Location: chat.php");
 	}else{
 		echo "<script type='text/javascript'>err_incorrect()</script>";

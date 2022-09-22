@@ -3,10 +3,16 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+
+
+include("class_user.php");
+include("html_parts.php");
 session_start();
+
+$user = new user;
+$user -> update_login_status($_SESSION['email'], "0");
 session_destroy();
 
-include("html_parts.php");
 html_pageHeader();
 
 echo"<main class='messageMain'>
