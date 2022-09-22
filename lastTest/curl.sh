@@ -11,16 +11,16 @@ cd /dev/shm/$USER
 for i in $(seq 0 $loopNr);do
   case $caseNr in
     1)
-      curl -s -b jar-$i-$$ -c jar-$i-$$ -X 'GET' "https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input[0..10000]'" >/dev/null 2>&1&
+      curl -s -b jar-$i-$$ -c jar-$i-$$ -X 'GET' "https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input%20[0..10000]'" >/dev/null 2>&1&
       idArray[${i}]=$!
   ;;
     2)
-        curl -s -b jar-$i-$$ -c jar-$i-$$ -X 'GET' "https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='[0..10000]'" >/dev/null 2>&1&
+        curl -s -b jar-$i-$$ -c jar-$i-$$ -X 'GET' "https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='Hello,%20how%20are%20you?%20Und%20sonst%20so?%20[0..10000]'" >/dev/null 2>&1&
         idArray[${i}]=$!
     ;;
   *)
 
-      curl -s -b jar-$i-$$ -c jar-$i-$$ -X 'GET' "https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input[0..10000]'" >/dev/null 2>&1&
+      curl -s -b jar-$i-$$ -c jar-$i-$$ -X 'GET' "https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input%20[0..10000]'" >/dev/null 2>&1&
       idArray[${i}]=$!
   ;;
  esac

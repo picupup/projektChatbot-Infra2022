@@ -21,7 +21,7 @@ rm -r $testF/*
 f=""
 for i in $(seq 1 $testNr);do
   loopNr=$(($i * $mass))
-  echo "curl test Nr: 1000 x $loopNr"
+  echo "curl test Nr: 10000 x $loopNr"
   ./Test.sh $loopNr $case > ~/tmp/test.log
   if test -n "$!";then
     f="Number of requests were to big to handle"
