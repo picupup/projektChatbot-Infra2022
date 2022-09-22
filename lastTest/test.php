@@ -10,11 +10,9 @@ error_reporting(E_ALL);
 
 $user=get_current_user();
 $dir="/var/www/html/infra-2022-e/test_result";
-$files = scandir($dir);
 $files2 = array_diff(scandir($dir), array('..', '.')); // remove dots
 $ww="https://informatik.hs-bremerhaven.de/infra-2022-e/test_result";
-//print_r($files1);
-//
+
 echo "<html>
 <head>
     <meta charset='UTF-8'>

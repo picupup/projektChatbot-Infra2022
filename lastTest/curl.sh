@@ -19,7 +19,6 @@ for i in $(seq 0 $loopNr);do
         idArray[${i}]=$!
     ;;
   *)
-
       curl -s -b jar-$i-$$ -c jar-$i-$$ -X 'GET' "https://informatik.hs-bremerhaven.de/docker-infra-2022-e-web/robbi/call_test.php?question='$input%20[0..10000]'" >/dev/null 2>&1&
       idArray[${i}]=$!
   ;;

@@ -10,11 +10,11 @@ mkdir -p ~/tmp/dockerstatswatch
 
 dateBegin="$(date '+%Y-%m-%d')"
 hourBegin="$(date '+%H:%M:%S')"
-echo -e "Starting at \n $dateBegin $hourBegin" 
+echo -e "Starting at \n $dateBegin $hourBegin" # "echo -e" is for considering \n for example
 sleep 0.3
 
 dir=$(pwd)
-./curl.sh $loopNr $case
+./curl.sh $loopNr $case # at this point the script to trigger the curl commants is executed
 
 cd $dir
 
@@ -27,9 +27,9 @@ touch $imgtxt
 echo -n "" > $imgtxt
 
 data=$(cd $dir && ./getstatistic.sh $dateBegin $hourBegin $dateEnd $hourEnd)
-echo -n $data > $imgtxt
-echo -e "data:\n $data"
-if test -z "$data";then 
+echo -n $data > $imgtxt # "echo -n" avoids the word wrap after the command
+echo -e "data:\n $data" # "echo -e" enables echo to interpret \n.
+if test -z "$data";then # "test -z" returns 0 if "$data" exists.
   echo -e "There were no input from dockerstatwatch.\n Exiting now"
   exit 1
 fi 

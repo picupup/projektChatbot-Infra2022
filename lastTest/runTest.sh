@@ -25,12 +25,13 @@ for i in $(seq 1 $testNr);do
   if test ! -e $result/$loopNr\_$case.png ;then
 
     ./Test.sh $loopNr $case > ~/tmp/test.log
-    if test -n "$!";then
+    if test -n "$!";then #Returns true if the string or file exists.
      f="Number of requests were to big to handle"
      break
     fi
 
   cp $out/last.png $testF/$loopNr\_$case.png
+
   echo "https://informatik.hs-bremerhaven.de/$USER/test_result/$loopNr.png"
   else
     echo -e "\nThis particular Test ($loopNr case: $case) is being skiped since it already exists online.\n"
