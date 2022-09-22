@@ -5,6 +5,7 @@
 #\Thema:This script is a one time curl of the website
 # Wichtig da dockerstatwatch einmaig für immer läuft sollt ./startstate.sh einmalig durchgeführt werden.
 loopNr=${1:-10}
+case=${2:-1}
 mkdir -p ~/tmp/dockerstatswatch
 
 dateBegin="$(date '+%Y-%m-%d')"
@@ -13,7 +14,7 @@ echo -e "Starting at \n $dateBegin $hourBegin"
 sleep 0.3
 
 dir=$(pwd)
-./curl.sh $loopNr
+./curl.sh $loopNr $case
 
 cd $dir
 

@@ -3,9 +3,10 @@
 #infra team e
 #2022-09-20_17:13:35
 #
-#\Thema: this script simpily runs the startTest.sh and gives it different Loop Numbers for the curl.sh script and after each test it saves the test result (png picture ) and carries on.
+#\Thema: this script simply runs the Test.sh and gives it different Loop Numbers for the curl.sh script and after each test it saves the test result (png picture ) and carries on.
 testNr=${1:-4} #Number of loops in this file 
 mass=${2:-200000} #Number of loops in curl.sh file
+case=${3:-1}
 loopNr=10
 counter=1
 out=/var/www/html/$USER
@@ -21,7 +22,7 @@ f=""
 for i in $(seq 1 $testNr);do
   loopNr=$(($i * $mass))
   echo "curl test Nr: 1000 x $loopNr"
-  ./startTest.sh $loopNr > ~/tmp/test.log
+  ./Test.sh $loopNr $case > ~/tmp/test.log
   if test -n "$!";then
     f="Number of requests were to big to handle"
     break
