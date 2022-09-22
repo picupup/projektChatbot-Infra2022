@@ -27,7 +27,7 @@ for i in $(seq 1 $testNr);do
     f="Number of requests were to big to handle"
     break
   fi
-  cp $out/last.png $testF/$loopNr_$case.png
+  cp $out/last.png $testF/$loopNr\_$case.png
   echo "https://informatik.hs-bremerhaven.de/$USER/test_result/$loopNr.png"
 done
 
