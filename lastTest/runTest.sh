@@ -22,13 +22,19 @@ f=""
 for i in $(seq 1 $testNr);do
   loopNr=$(($i * $mass))
   echo "curl test Nr: 10000 x $loopNr"
-  ./Test.sh $loopNr $case > ~/tmp/test.log
-  if test -n "$!";then
-    f="Number of requests were to big to handle"
-    break
-  fi
+  if test ! -e $result/$loopNr\_$case.png ;then
+
+    ./Test.sh $loopNr $case > ~/tmp/test.log
+    if test -n "$!";then
+     f="Number of requests were to big to handle"
+     break
+    fi
+
   cp $out/last.png $testF/$loopNr\_$case.png
   echo "https://informatik.hs-bremerhaven.de/$USER/test_result/$loopNr.png"
+  else
+    echo "This particular Test is being skiped since it already exists online."
+  fi
 done
 
 if test -z "$f";then
