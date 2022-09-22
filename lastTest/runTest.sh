@@ -33,7 +33,7 @@ for i in $(seq 1 $testNr);do
   cp $out/last.png $testF/$loopNr\_$case.png
   echo "https://informatik.hs-bremerhaven.de/$USER/test_result/$loopNr.png"
   else
-    echo "This particular Test is being skiped since it already exists online."
+    echo -e "\nThis particular Test ($loopNr case: $case) is being skiped since it already exists online.\n"
   fi
 done
 
