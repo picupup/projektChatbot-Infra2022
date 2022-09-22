@@ -36,7 +36,7 @@ fi
 echo "section 1"
 ./timeCreator.sh
 echo "section 2"
-./createPlotPng.sh
+./createPlotPng.sh "Project Test $dateBegin $hourBegin \n Curl requests: 10000 x $loopNr \n case: $case"
 echo "section 3"
 echo -e "\nEnding at $dateEnd $hourEnd"
 

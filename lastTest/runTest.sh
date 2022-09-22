@@ -27,12 +27,12 @@ for i in $(seq 1 $testNr);do
     f="Number of requests were to big to handle"
     break
   fi
-  cp $out/last.png $testF/$loopNr.png
+  cp $out/last.png $testF/$loopNr_$case.png
   echo "https://informatik.hs-bremerhaven.de/$USER/test_result/$loopNr.png"
 done
 
 if test -z "$f";then
-  rm -r $result/*
+  #rm -r $result/*
   cp $testF/* $result/
 exit 1
 fi
