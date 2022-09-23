@@ -5,7 +5,7 @@
 #
 #\Thema: this script simply runs the Test.sh and gives it different Loop Numbers for the curl.sh script and after each test it saves the test result (png picture ) and carries on.
 nr_of_runs=${1:-4}      #Number of loops in this file 
-nr_of_curl_first_run=${2:-200000} #Number of loops in curl.sh file
+loopNr=${2:-200000} #Number of loops in curl.sh file
 curl_type=${3:-1}       #Number of curl_type in curl.sh
 
 out=/var/www/html/$USER
@@ -18,12 +18,11 @@ mkdir -p $testF         # legt den Ordner "tmpTest" im "tmp"-Verzeichnis im Homv
 rm -r $testF/*          # löscht den Inhalt des "tmpTest"-Ordners
 
 f=""
-loopNr = $nr_of_curl_first_run
 for i in $(seq 1 $nr_of_runs)             # läuft von 1 bis $nr_of_runs
 do
-  if [ $i > 1 ]
+  if [ $i -gt 1 ]
   then
-    loopNr=$((2 * $nr_of_curl_first_run))  # mulitpliziert die Laufvariable mit $nr_of_curl_first_run
+    loopNr=$((2 * $loopNr))  # mulitpliziert die Laufvariable mit $nr_of_curl_first_run
   fi
   echo "curl test Nr: 10000 x $loopNr"
   if test ! -e $result_path/$loopNr\_$curl_type.png #Wenn die datei *nicht* existiert:
