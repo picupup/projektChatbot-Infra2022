@@ -34,6 +34,6 @@ then                    # "test -z" returns 0 if "$data" exists.
   exit 1
 fi
 ./timeCreator.sh
-./createPlotPng.sh "Project Test; Curl requests: 10000 x $loopNr; case: $case; Time:$dateBegin $hourBegin"
+./createPlotPng.sh "Project Test; Curl requests: $loopNr x 10000 ; case: $case; Time:$dateBegin $hourBegin"
 echo -e "\nEnding at $dateEnd $hourEnd"
 echo -e "check out the results under \n https://informatik.hs-bremerhaven.de/$USER/last.png"
