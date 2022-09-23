@@ -18,9 +18,9 @@ mkdir -p $testF         # legt den Ordner "tmpTest" im "tmp"-Verzeichnis im Homv
 rm -r $testF/*          # löscht den Inhalt des "tmpTest"-Ordners
 
 f=""
+loopNr = $nr_of_curl_first_run
 for i in $(seq 1 $nr_of_runs)             # läuft von 1 bis $nr_of_runs
 do
-  loopNr = $nr_of_curl_first_run
   if [ $i > 1 ]
   then
     loopNr=$((2 * $nr_of_curl_first_run))  # mulitpliziert die Laufvariable mit $nr_of_curl_first_run
