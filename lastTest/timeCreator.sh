@@ -3,7 +3,8 @@
 #erfkarimi
 #2022-09-12_23:34:50
 #\Thema:
-#
+
+
 imgtxt=~/tmp/dockerstatswatch/img.txt
 imgtxtTime=~/tmp/dockerstatswatch/img2.txt
 touch ~/tmp/dockerstatswatch/img2.txt;
