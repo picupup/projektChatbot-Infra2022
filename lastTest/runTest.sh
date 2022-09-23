@@ -20,7 +20,11 @@ rm -r $testF/*          # löscht den Inhalt des "tmpTest"-Ordners
 f=""
 for i in $(seq 1 $nr_of_runs)             # läuft von 1 bis $nr_of_runs
 do
-  loopNr=$(($i * $nr_of_curl_first_run))  # mulitpliziert die Laufvariable mit $nr_of_curl_first_run
+  loopNr = $nr_of_curl_first_run
+  if [ $i > 1 ]
+  then
+    loopNr=$((2 * $nr_of_curl_first_run))  # mulitpliziert die Laufvariable mit $nr_of_curl_first_run
+  fi
   echo "curl test Nr: 10000 x $loopNr"
   if test ! -e $result_path/$loopNr\_$curl_type.png #Wenn die datei *nicht* existiert:
   then
